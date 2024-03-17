@@ -2,6 +2,7 @@
 # Fichier à remplacer
 
 # Analyse des Données du Service de Vélos en Libre-Service de la Baie de San Francisco
+![San Francisco Bike](https://que-faire.voyage/wp-content/uploads/sites/13/2022/05/cyclistes-velo-san-francisco.jpg "San Francisco Bike")
 
 ## Introduction
 

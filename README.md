@@ -31,54 +31,54 @@ Les données sont divisées en quatre catégories principales correspondant aux 
 
 ### Caractéristiques des Données par Fichier
 
-| Fichier  | Caractéristique                | Type        |
-|----------|--------------------------------|-------------|
-| **Station** | id                         | int         |
-|          | name                       | str         |
-|          | latitude                   | float       |
-|          | longitude                  | float       |
-|          | dock_count                 | int         |
-|          | city                       | str         |
-|          | installation_date          | date        |
-| **Status**  | station_id                  | int         |
-|          | bikes_available            | int         |
-|          | docks_available            | int         |
-|          | time                       | datetime    |
-| **Trip**    | id                         | int         |
-|          | duration                   | int         |
-|          | start_date                 | datetime    |
-|          | start_station_name         | str         |
-|          | start_station_id           | int         |
-|          | end_date                   | datetime    |
-|          | end_station_name           | str         |
-|          | end_station_id             | int         |
-|          | bike_id                    | int         |
-|          | subscription_type          | str         |
-|          | zip_code                   | int         |
-| **Weather** | Date                      | date        |
-|          | max_temperature_f          | float       |
-|          | mean_temperature_f         | float       |
-|          | min_temperature_f          | float       |
-|          | max_dew_point_f            | float       |
-|          | mean_dew_point_f           | float       |
-|          | min_dew_point_f            | float       |
-|          | max_humidity               | float       |
-|          | mean_humidity              | float       |
-|          | min_humidity               | float       |
-|          | max_sea_level_pressure_inches |    float         |
-|          | mean_sea_level_pressure_inches |    float         |
-|          | min_sea_level_pressure_inches |     float        |
-|          | max_visibility_miles       |      float       |
-|          | mean_visibility_miles      |      float       |
-|          | min_visibility_miles       |      float       |
-|          | max_wind_Speed_mph         |      float       |
-|          | mean_wind_speed_mph        |     float        |
-|          | max_gust_speed_mph         |     float        |
-|          | precipitation_inches       |     float        |
-|          | cloud_cover                |      float       |
-|          | events                     |    str         |
-|          | wind_dir_degrees           |      float       |
-|          | zip_code                   | int         |
+| Fichier  | Caractéristique                | Type        |Description|
+|----------|--------------------------------|-------------|------------------------|
+| **Station** | id                         | int         ||
+|          | name                       | str         ||
+|          | latitude                   | float       ||
+|          | longitude                  | float       ||
+|          | dock_count                 | int         ||
+|          | city                       | str         ||
+|          | installation_date          | date        ||
+| **Status**  | station_id                  | int         ||
+|          | bikes_available            | int         ||
+|          | docks_available            | int         ||
+|          | time                       | datetime    ||
+| **Trip**    | id                         | int         ||
+|          | duration                   | int         ||
+|          | start_date                 | datetime    ||
+|          | start_station_name         | str         ||
+|          | start_station_id           | int         ||
+|          | end_date                   | datetime    ||
+|          | end_station_name           | str         ||
+|          | end_station_id             | int         ||
+|          | bike_id                    | int         ||
+|          | subscription_type          | str         ||
+|          | zip_code                   | int         ||
+| **Weather** | Date                      | date        ||
+|          | max_temperature_f          | float       ||
+|          | mean_temperature_f         | float       ||
+|          | min_temperature_f          | float       ||
+|          | max_dew_point_f            | float       ||
+|          | mean_dew_point_f           | float       ||
+|          | min_dew_point_f            | float       ||
+|          | max_humidity               | float       ||
+|          | mean_humidity              | float       ||
+|          | min_humidity               | float       ||
+|          | max_sea_level_pressure_inches |    float         ||
+|          | mean_sea_level_pressure_inches |    float         ||
+|          | min_sea_level_pressure_inches |     float        ||
+|          | max_visibility_miles       |      float       ||
+|          | mean_visibility_miles      |      float       ||
+|          | min_visibility_miles       |      float       ||
+|          | max_wind_Speed_mph         |      float       ||
+|          | mean_wind_speed_mph        |     float        ||
+|          | max_gust_speed_mph         |     float        ||
+|          | precipitation_inches       |     float        ||
+|          | cloud_cover                |      float       ||
+|          | events                     |    str         ||
+|          | wind_dir_degrees           |      float       ||
+|          | zip_code                   | int         ||
 
 
 ## Plan d’Analyse

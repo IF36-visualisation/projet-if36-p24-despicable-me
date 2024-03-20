@@ -34,7 +34,7 @@ Les données sont divisées en quatre catégories principales correspondant aux 
 | Fichier  | Caractéristique                | Type        |Description|
 |----------|--------------------------------|-------------|------------------------|
 | **Station** | id                         | int         ||
-|          | name                       | str         ||
+|          | name                       | str         |Nom de la station de vélo|
 |          | latitude                   | float       ||
 |          | longitude                  | float       ||
 |          | dock_count                 | int         ||

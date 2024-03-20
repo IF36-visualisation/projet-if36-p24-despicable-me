@@ -1,5 +1,4 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/Fj4cXJY4)
-# Fichier à remplacer
 
 # Analyse des Données du Service de Vélos en Libre-Service de la Baie de San Francisco
 ![San Francisco Bike](https://que-faire.voyage/wp-content/uploads/sites/13/2022/05/cyclistes-velo-san-francisco.jpg "San Francisco Bike")
@@ -17,11 +16,14 @@ Les données proviennent de [Kaggle](https://www.kaggle.com/datasets/benhamner/s
 ### Description
 Nous avons choisi ces datasets pour les informations diversifiées qu’ils proposent, décrites ci-dessous
 
-- **Station** : 70 éléments avec 7 caractéristiques, telles que l'ID de la station, le nom, la latitude, la longitude, etc.
-- **Weather** : 72M éléments avec 24 caractéristiques, incluant la date, la température maximale, moyenne, et minimale, l'humidité, etc.
-- **Status** : 670 000 éléments avec 4 caractéristiques, telles que l'ID de la station, les vélos disponibles, etc.
-- **Trip** : 3665 éléments avec 11 caractéristiques, y compris l'ID du trajet, la durée, la date de début, le nom de la station de départ, etc.
-
+- **Station** : Ce dataset contient des données qui représentent une station où les utilisateurs peuvent récupérer ou restituer des vélos.
+          - *Contenu* : 70 éléments avec 7 caractéristiques.
+- **Weather** : Celuic-i donne des informations sur le nombre de vélos et de quais disponibles pour une station et une minute données.
+          - *Contenu* : 72M éléments avec 24 caractéristiques.
+- **Status** : Ici sont donné des informations sur les déplacements individuels à vélo.
+          - *Contenu* : 670 000 éléments avec 4 caractéristiques.
+- **Trip** : Ce dernier dataset nous donne des informations sur la météo un jour spécifique pour certains codes postaux
+          - *Contenu* : 3665 éléments avec 11 caractéristiques
 ### Format
 
 Chaque ensemble de données est formaté en CSV, facilitant l'importation et l'analyse dans divers outils d'analyse de données.

@@ -33,17 +33,17 @@ Les données sont divisées en quatre catégories principales correspondant aux 
 
 | Fichier  | Caractéristique                | Type        |Description|
 |----------|--------------------------------|-------------|------------------------|
-| **Station** | id                         | int         ||
+| **Station** | id                         | int         |Identififiant unique de la station|
 |          | name                       | str         |Nom de la station de vélo|
-|          | latitude                   | float       ||
-|          | longitude                  | float       ||
-|          | dock_count                 | int         ||
-|          | city                       | str         ||
-|          | installation_date          | date        ||
-| **Status**  | station_id                  | int         ||
-|          | bikes_available            | int         ||
-|          | docks_available            | int         ||
-|          | time                       | datetime    ||
+|          | latitude                   | float       |Coordonnée géographique en latitude de la station|
+|          | longitude                  | float       |Coordonnée géographique en longitude de la station|
+|          | dock_count                 | int         |Nombre de places de vélos disponibles dans la station|
+|          | city                       | str         |Nom de la ville dans laquelle la station est instalée|
+|          | installation_date          | date        |Date d'installation de la station|
+| **Status**  | station_id                  | int         |Identififiant unique de la station|
+|          | bikes_available            | int         |Nombre de vélos disponibles dans la station|
+|          | docks_available            | int         |Nombre de places vides disponibles dans la station|
+|          | time                       | datetime    |Heure actuelle|
 | **Trip**    | id                         | int         ||
 |          | duration                   | int         ||
 |          | start_date                 | datetime    ||

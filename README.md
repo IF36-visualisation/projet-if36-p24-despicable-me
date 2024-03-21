@@ -51,37 +51,37 @@ Les données sont divisées en quatre catégories principales correspondant aux 
 |          | duration                   | int         |Durée du trajet|
 |          | start_date                 | datetime    |Date et heure de début du trajet|
 |          | start_station_name         | str         |Nom de la station de départ|
-|          | start_station_id           | int         |Idetnifiant unique de la station de départ|
+|          | start_station_id           | int         |Identifiant unique de la station de départ|
 |          | end_date                   | datetime    |Date et heure de fin de trajet|
 |          | end_station_name           | str         |Nom de la station de fin |
 |          | end_station_id             | int         |Identifiant unique de la station d'arrivée|
 |          | bike_id                    | int         |Identifiant unique du vélo|
 |          | subscription_type          | str         |Type d'abonnement de l'utilisateur|
 |          | zip_code                   | int         |Code postal|
-| **Weather** | Date                      | date        ||
-|          | max_temperature_f          | float       ||
-|          | mean_temperature_f         | float       ||
-|          | min_temperature_f          | float       ||
-|          | max_dew_point_f            | float       ||
-|          | mean_dew_point_f           | float       ||
-|          | min_dew_point_f            | float       ||
-|          | max_humidity               | float       ||
-|          | mean_humidity              | float       ||
-|          | min_humidity               | float       ||
-|          | max_sea_level_pressure_inches |    float         ||
-|          | mean_sea_level_pressure_inches |    float         ||
-|          | min_sea_level_pressure_inches |     float        ||
-|          | max_visibility_miles       |      float       ||
-|          | mean_visibility_miles      |      float       ||
-|          | min_visibility_miles       |      float       ||
-|          | max_wind_Speed_mph         |      float       ||
-|          | mean_wind_speed_mph        |     float        ||
-|          | max_gust_speed_mph         |     float        ||
-|          | precipitation_inches       |     float        ||
-|          | cloud_cover                |      float       ||
-|          | events                     |    str         ||
-|          | wind_dir_degrees           |      float       ||
-|          | zip_code                   | int         ||
+| **Weather** | Date                      | date        |Date|
+|          | max_temperature_f          | float       |Température maximale en degrés Fahrenheit|
+|          | mean_temperature_f         | float       |Température moyenne en degrés Fahrenheit|
+|          | min_temperature_f          | float       |Température minimale en degrés Fahrenheit|
+|          | max_dew_point_f            | float       |Point de rosée maximal en degrés Fahrenheit|
+|          | mean_dew_point_f           | float       |Point de rosée moyen en degrés Fahrenheit|
+|          | min_dew_point_f            | float       |Point de rosée minimal en degrés Fahrenheit|
+|          | max_humidity               | float       |Humidité maximale en %|
+|          | mean_humidity              | float       |Humidité moyenne en %|
+|          | min_humidity               | float       |Humidité minimale %|
+|          | max_sea_level_pressure_inches |    float         |Pression atmosphérique maximale au niveau de la mer en pouces de mercure|
+|          | mean_sea_level_pressure_inches |    float         |Pression atmosphérique moyenne au niveau de la mer en pouces de mercure|
+|          | min_sea_level_pressure_inches |     float        |Pression atmosphérique minimale au niveau de la mer en pouces de mercure|
+|          | max_visibility_miles       |      float       |Visibilité maximale en miles|
+|          | mean_visibility_miles      |      float       |Visibilité moyenne en miles|
+|          | min_visibility_miles       |      float       |Visibilité minimale en miles|
+|          | max_wind_Speed_mph         |      float       |Vitesse maximale du vent  en miles par heure|
+|          | mean_wind_speed_mph        |     float        |Vitesse moyenne du vent  en miles par heure|
+|          | max_gust_speed_mph         |     float        |Vitesse maximale des rafales  en miles par heure|
+|          | precipitation_inches       |     float        |Volume des précipitations en pouces|
+|          | cloud_cover                |      float       |Couverture nuageuse en oktas|
+|          | events                     |    str         |Commentaires sur la météo du jour (Brouillard, pluie...)|
+|          | wind_dir_degrees           |      float       |Direction du vent en degrés|
+|          | zip_code                   | int         |Code postal |
 
 
 ## Plan d’Analyse

@@ -17,13 +17,13 @@ Les données proviennent de [Kaggle](https://www.kaggle.com/datasets/benhamner/s
 Nous avons choisi ces datasets pour les informations diversifiées qu’ils proposent, décrites ci-dessous
 
 - **Station** : Ce dataset contient des données qui représentent une station où les utilisateurs peuvent récupérer ou restituer des vélos.
-          - *Contenu* : 70 éléments avec 7 caractéristiques.
+  - *Contenu* : 70 éléments avec 7 caractéristiques.
 - **Weather** : Celuic-i donne des informations sur le nombre de vélos et de quais disponibles pour une station et une minute données.
-          - *Contenu* : 72M éléments avec 24 caractéristiques.
+  - *Contenu* : 72M éléments avec 24 caractéristiques.
 - **Status** : Ici sont donné des informations sur les déplacements individuels à vélo.
-          - *Contenu* : 670 000 éléments avec 4 caractéristiques.
+  - *Contenu* : 670 000 éléments avec 4 caractéristiques.
 - **Trip** : Ce dernier dataset nous donne des informations sur la météo un jour spécifique pour certains codes postaux
-          - *Contenu* : 3665 éléments avec 11 caractéristiques
+  - *Contenu* : 3665 éléments avec 11 caractéristiques
 ### Format
 
 Chaque ensemble de données est formaté en CSV, facilitant l'importation et l'analyse dans divers outils d'analyse de données.
@@ -34,63 +34,121 @@ Les données sont divisées en quatre catégories principales correspondant aux 
 
 ### Caractéristiques des Données par Fichier
 
-| Fichier  | Caractéristique                | Type        |Description|
+| Fichier  | Caractéristique                | Type de données (Quantitatif / Qualitatif)       |Description|
 |----------|--------------------------------|-------------|------------------------|
-| **Station** | id                         | int         |Identifiant unique de la station|
-|          | name                       | str         |Nom de la station de vélo|
-|          | latitude                   | float       |Coordonnée géographique en latitude de la station|
-|          | longitude                  | float       |Coordonnée géographique en longitude de la station|
-|          | dock_count                 | int         |Nombre de places de vélos disponibles dans la station|
-|          | city                       | str         |Nom de la ville dans laquelle la station est instalée|
-|          | installation_date          | date        |Date d'installation de la station|
-| **Status**  | station_id                  | int         |Identifiant unique de la station|
-|          | bikes_available            | int         |Nombre de vélos disponibles dans la station|
-|          | docks_available            | int         |Nombre de places vides disponibles dans la station|
-|          | time                       | datetime    |Heure actuelle|
-| **Trip**    | id                         | int         |Identifiant unique du trajet|
-|          | duration                   | int         |Durée du trajet|
-|          | start_date                 | datetime    |Date et heure de début du trajet|
-|          | start_station_name         | str         |Nom de la station de départ|
-|          | start_station_id           | int         |Identifiant unique de la station de départ|
-|          | end_date                   | datetime    |Date et heure de fin de trajet|
-|          | end_station_name           | str         |Nom de la station de fin |
-|          | end_station_id             | int         |Identifiant unique de la station d'arrivée|
-|          | bike_id                    | int         |Identifiant unique du vélo|
-|          | subscription_type          | str         |Type d'abonnement de l'utilisateur|
-|          | zip_code                   | int         |Code postal|
-| **Weather** | Date                      | date        |Date|
-|          | max_temperature_f          | float       |Température maximale en degrés Fahrenheit|
-|          | mean_temperature_f         | float       |Température moyenne en degrés Fahrenheit|
-|          | min_temperature_f          | float       |Température minimale en degrés Fahrenheit|
-|          | max_dew_point_f            | float       |Point de rosée maximal en degrés Fahrenheit|
-|          | mean_dew_point_f           | float       |Point de rosée moyen en degrés Fahrenheit|
-|          | min_dew_point_f            | float       |Point de rosée minimal en degrés Fahrenheit|
-|          | max_humidity               | float       |Humidité maximale en %|
-|          | mean_humidity              | float       |Humidité moyenne en %|
-|          | min_humidity               | float       |Humidité minimale %|
-|          | max_sea_level_pressure_inches |    float         |Pression atmosphérique maximale au niveau de la mer en pouces de mercure|
-|          | mean_sea_level_pressure_inches |    float         |Pression atmosphérique moyenne au niveau de la mer en pouces de mercure|
-|          | min_sea_level_pressure_inches |     float        |Pression atmosphérique minimale au niveau de la mer en pouces de mercure|
-|          | max_visibility_miles       |      float       |Visibilité maximale en miles|
-|          | mean_visibility_miles      |      float       |Visibilité moyenne en miles|
-|          | min_visibility_miles       |      float       |Visibilité minimale en miles|
-|          | max_wind_Speed_mph         |      float       |Vitesse maximale du vent  en miles par heure|
-|          | mean_wind_speed_mph        |     float        |Vitesse moyenne du vent  en miles par heure|
-|          | max_gust_speed_mph         |     float        |Vitesse maximale des rafales  en miles par heure|
-|          | precipitation_inches       |     float        |Volume des précipitations en pouces|
-|          | cloud_cover                |      float       |Couverture nuageuse en oktas|
-|          | events                     |    str         |Commentaires sur la météo du jour (Brouillard, pluie...)|
-|          | wind_dir_degrees           |      float       |Direction du vent en degrés|
-|          | zip_code                   | int         |Code postal |
+| **Station** | id                         | discrète        |Identifiant unique de la station|
+|          | name                       | nominale         |Nom de la station de vélo|
+|          | latitude                   | continue       |Coordonnée géographique en latitude de la station|
+|          | longitude                  | continue       |Coordonnée géographique en longitude de la station|
+|          | dock_count                 | discrète         |Nombre de places de vélos disponibles dans la station|
+|          | city                       | nominale         |Nom de la ville dans laquelle la station est instalée|
+|          | installation_date          | discrète        |Date d'installation de la station|
+| **Status**  | station_id                  | discrète         |Identifiant unique de la station|
+|          | bikes_available            | discrète         |Nombre de vélos disponibles dans la station|
+|          | docks_available            | discrète         |Nombre de places vides disponibles dans la station|
+|          | time                       | discrète    |Heure actuelle|
+| **Trip**    | id                         | discrète         |Identifiant unique du trajet|
+|          | duration                   | discrète         |Durée du trajet|
+|          | start_date                 | discrète    |Date et heure de début du trajet|
+|          | start_station_name         | nominale         |Nom de la station de départ|
+|          | start_station_id           | discrète         |Identifiant unique de la station de départ|
+|          | end_date                   | discrète    |Date et heure de fin de trajet|
+|          | end_station_name           | nominale         |Nom de la station de fin |
+|          | end_station_id             | discrète         |Identifiant unique de la station d'arrivée|
+|          | bike_id                    | discrète         |Identifiant unique du vélo|
+|          | subscription_type          | nominal         |Type d'abonnement de l'utilisateur|
+|          | zip_code                   | discrète         |Code postal|
+| **Weather** | Date                      | discrète        |Date|
+|          | max_temperature_f          | continue       |Température maximale en degrés Fahrenheit|
+|          | mean_temperature_f         | continue       |Température moyenne en degrés Fahrenheit|
+|          | min_temperature_f          | continue       |Température minimale en degrés Fahrenheit|
+|          | max_dew_point_f            | continue       |Point de rosée maximal en degrés Fahrenheit|
+|          | mean_dew_point_f           | continue       |Point de rosée moyen en degrés Fahrenheit|
+|          | min_dew_point_f            | continue       |Point de rosée minimal en degrés Fahrenheit|
+|          | max_humidity               | continue       |Humidité maximale en %|
+|          | mean_humidity              | continue       |Humidité moyenne en %|
+|          | min_humidity               | continue       |Humidité minimale %|
+|          | max_sea_level_pressure_inches |    continue         |Pression atmosphérique maximale au niveau de la mer en pouces de mercure|
+|          | mean_sea_level_pressure_inches |    continue         |Pression atmosphérique moyenne au niveau de la mer en pouces de mercure|
+|          | min_sea_level_pressure_inches |     continue        |Pression atmosphérique minimale au niveau de la mer en pouces de mercure|
+|          | max_visibility_miles       |      continue       |Visibilité maximale en miles|
+|          | mean_visibility_miles      |      continue       |Visibilité moyenne en miles|
+|          | min_visibility_miles       |      continue       |Visibilité minimale en miles|
+|          | max_wind_Speed_mph         |      continue       |Vitesse maximale du vent  en miles par heure|
+|          | mean_wind_speed_mph        |     continue        |Vitesse moyenne du vent  en miles par heure|
+|          | max_gust_speed_mph         |     continue        |Vitesse maximale des rafales  en miles par heure|
+|          | precipitation_inches       |     continue        |Volume des précipitations en pouces|
+|          | cloud_cover                |      continue       |Couverture nuageuse en oktas|
+|          | events                     |    nominale        |Commentaires sur la météo du jour (Brouillard, pluie...)|
+|          | wind_dir_degrees           |      continue       |Direction du vent en degrés|
+|          | zip_code                   | dicrète         |Code postal |
 
 
 ## Plan d’Analyse
 
-Nous aborderons plusieurs questions clés à travers notre analyse, telles que :
+Nous aborderons plusieurs questions clés à travers notre analyse, qui se divisent en deux parties pour répondre à notre problématique :
 
-- Question1
-- Questions2
-- Questions3
-- etc
+**Qu’est-ce qui impacte sur l’utilisation des vélos ?:**
+
+1. Quelle est la répartition des statuts des utilisateurs en fonction du trajet effectué (Subscriber/Customer) ? 
+   - *_Graphique_* : Bar Chart
+   - *_Dataset_* : trip.csv
+   - *_Features_* : subscription_type, start_date, end_date 
+   
+2. Est-ce que les stations sont bien dimensionnées ? (suffisamment de docks)
+   - *_Graphique_* : Multi Set Bar Chart ou Population chart
+   - *_Dataset_* : trip.csv, station.csv
+   - *_Features_*: dock_count, name, station_name
+   
+3. Est-ce que le dénivelé a un impact sur les trajets effectués par les utilisateurs ?
+   - *_Graphique_*: Flow Map + Carte topographique à intégrer
+   - *_Dataset_*: trip.csv, station.csv
+   - *_Features_*: lat, long, name, station_name, start_station_name, end_station_name
+   
+4. Quelle condition météorologique a le plus d’impact sur l’utilisation des vélos ?
+   - *_Graphique_*: Bar chart
+   - *_Dataset_*: weather.csv, trip.csv
+   - *_Features_*: start_date, date, mean_temperature_f, mean_humidity, mean_wind_speed_mph, precipitation_inches, cloud_cover, wind_dir_degrees
+
+**Quelles sont les tendances d’utilisation des vélos ?**
+
+5. Quel est la durée moyenne des trajets en fonction de la météo ?
+   - *_Graphique_*: Bar chart (pour chaque condition météorologique ~6)
+   - *_Dataset_*: weather.csv, trip.csv
+   - *_Features_*: start_date, end_date, duration, date, mean_temperature_f, mean_humidity, mean_wind_speed_mph, precipitation_inches, cloud_cover, wind_dir_degrees
+   
+6. Comment la météo influence les trajets, en termes de distance et de destination ?
+   - *_Graphique_*: Connexion Map pour chaque condition météorologique  
+   - *_Dataset_*: trip.csv, weather.csv, station.csv
+   - *_Features_*: start_date, end_date, date, start_station_name, end_station_name, name, lat, long, mean_temperature_f, mean_humidity, mean_wind_speed_mph, precipitation_inches, cloud_cover, wind_dir_degrees
+   
+7. Quels sont les trajets les plus fréquentés ?
+   - *_Graphique_*: Arc diagram
+   - *_Dataset_*: trip.csv
+   - *_Features_*: start_station, end_station
+   
+8. Quelles sont les stations les plus fréquentées (départs et arrivées)?
+   - *_Graphique_*: Dot Map
+   - *_Dataset_*: trip.csv
+   - *_Features_*: start_station, end_station
+   
+9. Quelles sont les durées des trajets en fonction des heures de la journée, de la saison ? Et comment l’utilisation des vélos varie au cours de la journée ?
+   - *_Graphique_*: Bar chart (3 graphiques)
+   - *_Dataset_*: trip.csv
+   - *_Features_*: start_date, end_date, duration
+   
+10. Quel est le rapport entre départs et arrivées de chaque station ?
+    - *_Graphique_*: Dot map
+    - *_Dataset_*: trip.csv
+    - *_Features_*: start_station_name, end_station_name
+   
+11. Existe-il une relation entre le nombre de vélos disponible à une station et la météo ?
+    - *_Graphique_*: Heatmap ou Scatterplot 
+    - *_Dataset_*: status.csv, weather.csv
+    - *_Features_*: bikes_available, time, date, mean_temperature_f, mean_humidity, mean_wind_speed_mph, precipitation_inches, cloud_cover, wind_dir_degrees
+
+
+
+
 
 

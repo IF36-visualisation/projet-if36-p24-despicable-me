@@ -18,7 +18,7 @@ Nous avons choisi ces datasets pour les informations diversifiées qu’ils prop
 
 - **Station** : Ce dataset contient des données qui représentent une station où les utilisateurs peuvent récupérer ou restituer des vélos.
   - *Contenu* : 70 éléments avec 7 caractéristiques.
-- **Weather** : Celuic-i donne des informations sur le nombre de vélos et de quais disponibles pour une station et une minute données.
+- **Weather** : Celui-ci donne des informations sur le nombre de vélos et de quais disponibles pour une station et une minute données.
   - *Contenu* : 72M éléments avec 24 caractéristiques.
 - **Status** : Ici sont donné des informations sur les déplacements individuels à vélo.
   - *Contenu* : 670 000 éléments avec 4 caractéristiques.

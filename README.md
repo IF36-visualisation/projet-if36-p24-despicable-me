@@ -20,13 +20,13 @@ Nous avons choisi ces datasets pour les informations diversifiées qu’ils prop
   - *Contenu* : 70 éléments avec 7 caractéristiques.
 - **Weather** : Celui-ci donne des informations sur le nombre de vélos et de quais disponibles pour une station et une minute données.
   - *Contenu* : 72M éléments avec 24 caractéristiques.
-- **Status** : Ici sont donné des informations sur les déplacements individuels à vélo.
+- **Status** : Ici sont données des informations sur les déplacements individuels à vélo.
   - *Contenu* : 670 000 éléments avec 4 caractéristiques.
 - **Trip** : Ce dernier dataset nous donne des informations sur la météo un jour spécifique pour certains codes postaux
   - *Contenu* : 3665 éléments avec 11 caractéristiques
 ### Format
 
-Chaque ensemble de données est formaté en CSV, facilitant l'importation et l'analyse dans divers outils d'analyse de données.
+Chaque ensemble de données est formaté en CSV, ce qui facilite l'importation et l'analyse dans divers outils d'analyse de données.
 
 ### Catégories et Sous-groupes
 
@@ -88,7 +88,7 @@ Les données sont divisées en quatre catégories principales correspondant aux 
 
 Nous aborderons plusieurs questions clés à travers notre analyse, qui se divisent en deux parties pour répondre à notre problématique :
 
-**Qu’est-ce qui impacte sur l’utilisation des vélos ?:**
+**Quel sont les facteurs qui ont un impact l’utilisation des vélos ?:**
 
 1. Quelle est la répartition des statuts des utilisateurs en fonction du trajet effectué (Subscriber/Customer) ? 
    - *_Graphique_* : Bar Chart

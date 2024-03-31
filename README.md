@@ -90,22 +90,27 @@ Nous aborderons plusieurs questions clés à travers notre analyse, qui se divis
 
 **Quel sont les facteurs qui ont un impact l’utilisation des vélos ?:**
 
-1. Quelle est la répartition des statuts des utilisateurs en fonction du trajet effectué (Subscriber/Customer) ? 
+1. Quelle est la répartition des statuts des utilisateurs en fonction du trajet effectué (Subscriber/Customer) ?
+   - Pour les long trajets on peut s’attendre à ce qu’il y ait un pourcentage plus élevé de "subscribers" que de "customers".
    - *_Graphique_* : Bar Chart
    - *_Dataset_* : trip.csv
    - *_Features_* : subscription_type, start_date, end_date 
    
 2. Est-ce que les stations sont bien dimensionnées ? (suffisamment de docks)
+   - On va chercher à savoir si les capacités d’accueil des stations sont adaptées au flux entrant et sortant d’utilisateurs sur chaque station. On va comparer la capacité d’accueil d’une station par rapport au nombre de vélos qui y sont. Le problème que l’on peut rencontrer est au niveau du nombre d’éléments (environ 82 stations).
    - *_Graphique_* : Multi Set Bar Chart ou Population chart
    - *_Dataset_* : trip.csv, station.csv
    - *_Features_*: dock_count, name, station_name
    
 3. Est-ce que le dénivelé a un impact sur les trajets effectués par les utilisateurs ?
+   - Nous nous attendons à ce qu’un trajet possédant plus de dénivelé soit moins emprunté par les utilisateurs.
    - *_Graphique_*: Flow Map + Carte topographique à intégrer
    - *_Dataset_*: trip.csv, station.csv
    - *_Features_*: lat, long, name, station_name, start_station_name, end_station_name
    
 4. Quelle condition météorologique a le plus d’impact sur l’utilisation des vélos ?
+   - Nous souhaitons observer quelle condition météorologique impact le plus l’utilisation des vélos.
+Nous mettrons en comparaison les différentes informations météorologiques que nous possédons avec les données d’utilisations des vélos au cours d’une année.
    - *_Graphique_*: Bar chart
    - *_Dataset_*: weather.csv, trip.csv
    - *_Features_*: start_date, date, mean_temperature_f, mean_humidity, mean_wind_speed_mph, precipitation_inches, cloud_cover, wind_dir_degrees
@@ -113,36 +118,43 @@ Nous aborderons plusieurs questions clés à travers notre analyse, qui se divis
 **Quelles sont les tendances d’utilisation des vélos ?**
 
 5. Quel est la durée moyenne des trajets en fonction de la météo ?
+   - On va chercher à observer la durée moyenne des trajets en fonction des conditions météorologiques.
    - *_Graphique_*: Bar chart (pour chaque condition météorologique ~6)
    - *_Dataset_*: weather.csv, trip.csv
    - *_Features_*: start_date, end_date, duration, date, mean_temperature_f, mean_humidity, mean_wind_speed_mph, precipitation_inches, cloud_cover, wind_dir_degrees
    
 6. Comment la météo influence les trajets, en termes de distance et de destination ?
+   - Nous allons chercher quels sont les trajets effectués en fonction des conditions météorologiques.
    - *_Graphique_*: Connexion Map pour chaque condition météorologique  
    - *_Dataset_*: trip.csv, weather.csv, station.csv
    - *_Features_*: start_date, end_date, date, start_station_name, end_station_name, name, lat, long, mean_temperature_f, mean_humidity, mean_wind_speed_mph, precipitation_inches, cloud_cover, wind_dir_degrees
    
 7. Quels sont les trajets les plus fréquentés ?
+   - Nous voulons observer quels sont les trajets les plus fréquentés, notamment leur type (trajet pour aller vers un lieu de travail, école, université, loisir). Nous n’aurons pas le trajet exact étant donné que le dataset nous donne seulement le point de départ et le point d'arrivée.
    - *_Graphique_*: Arc diagram
    - *_Dataset_*: trip.csv
    - *_Features_*: start_station, end_station
    
-8. Quelles sont les stations les plus fréquentées (départs et arrivées)?
+8. Quelles sont les stations les plus fréquentées (départs et arrivées) ?
+   - Nous cherchons à observer quelles stations ont le nombre d'utilisateurs le plus important.
    - *_Graphique_*: Dot Map
    - *_Dataset_*: trip.csv
    - *_Features_*: start_station, end_station
    
 9. Quelles sont les durées des trajets en fonction des heures de la journée, de la saison ? Et comment l’utilisation des vélos varie au cours de la journée ?
+   - On cherche à représenter l’utilisation des vélos au cours de la journée, de l’année et voir si, au sein d’une même journée, il y a des plages horaires d’utilisation plus fortes ou faibles.
    - *_Graphique_*: Bar chart (3 graphiques)
    - *_Dataset_*: trip.csv
    - *_Features_*: start_date, end_date, duration
    
 10. Quel est le rapport entre départs et arrivées de chaque station ?
+    - On observe s’il y a des stations qui ont plus de départs que d’arrivées, et inversement.
     - *_Graphique_*: Dot map
     - *_Dataset_*: trip.csv
     - *_Features_*: start_station_name, end_station_name
    
 11. Existe-il une relation entre le nombre de vélos disponible à une station et la météo ?
+    - On voudrait voir si un temps moins propice à l’utilisation d’un vélo fait qu’il y a plus de vélos disponibles à une station.
     - *_Graphique_*: Heatmap ou Scatterplot 
     - *_Dataset_*: status.csv, weather.csv
     - *_Features_*: bikes_available, time, date, mean_temperature_f, mean_humidity, mean_wind_speed_mph, precipitation_inches, cloud_cover, wind_dir_degrees

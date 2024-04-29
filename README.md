@@ -7,6 +7,9 @@
 
 Ce projet vise à explorer et analyser les données du service de vélos en libre-service de la Baie de San Francisco, avec l'objectif de comprendre les facteurs influençant l'utilisation des vélos et d'identifier les tendances d'utilisation. Les données, provenant de Kaggle, incluent des informations détaillées sur les stations de vélo, la météo, le statut de la station à un moment donné, et les trajets effectués.
 
+Ces données correspondent plus précisément aux vélos de Bay Area Bike Share qui était, jusqu'en 2015, le principal loueur de vélos en libre-service 24/7 dans la baie de San Francisco. 
+Cette entreprise possédait 700 vélos et 70 stations dans la baie. Le jeu de  données disponible sur Kaggle nous donne les dernières données de ce service, entre août 2013 et août 2015, qui étaient mises à disposition sur le site de Bay Area Bike Share.
+
 ## Données
 
 ### Source

@@ -4,10 +4,15 @@ library(readr)
 library(leaflet)
 library(leaflet.extras)
 library(shinydashboard)
+library(tibble)
+library(tidyr)
+library(ggplot2)
+library(lubridate)
 
 # Lire les données des fichiers CSV
-trips <- read_csv("trip.csv")
-stations <- read_csv("station.csv")
+trips <- read_csv("../data/trip.csv")
+stations <- read_csv("../data/station.csv")
+weather <- read_csv("../data/weather.csv")
 
 # Convertir les durées de trajets de secondes en minutes
 trips <- trips %>%
@@ -37,6 +42,125 @@ get_color <- function(duration, max_duration) {
   index <- floor((duration / max_duration) * 99) + 1
   colors[index]
 }
+
+
+#---------------------PARTIE METEO-----------------------------------------------------------------------
+# Pour manipuler facilement les dates et les heures
+
+# Supposons que vos dataframes sont df_trip et df_weather
+# Vous pouvez les lire à partir de fichiers CSV par exemple
+
+df_trip <- read_csv("../data/trip.csv")
+df_weather <- read_csv("../data/weather.csv")
+
+# Convertir les colonnes de date en format Date
+# Extraire la date de start_date dans df_trip
+df_trip$start_date <- mdy_hm(df_trip$start_date)
+df_trip$date <- as.Date(df_trip$start_date)
+
+# Convertir la colonne date dans df_weather en format Date si ce n'est pas déjà fait
+df_weather$date <- mdy(df_weather$date)
+
+# Fusionner les dataframes sur zip_code et date
+df_merged <- merge(df_trip, df_weather, by = c("zip_code", "date"))
+
+# Convertir les valeurs de la colonne 'events' en minuscules
+df_merged$events <- tolower(df_merged$events)
+
+# Remplacer les valeurs NA dans la colonne 'events' par 'inconnu'
+df_merged$events <- replace_na(df_merged$events, "Temps clair")
+
+# Calculer la durée moyenne des trajets par événement météorologique
+df_summary <- df_merged %>%
+  group_by(events) %>%
+  summarize(mean_duration = mean(duration, na.rm = TRUE))
+
+# Convertir la durée moyenne des trajets de secondes en minutes
+df_summary <- df_summary %>%
+  mutate(mean_duration_minutes = mean_duration / 60)
+
+# Trier les données par ordre croissant de la durée moyenne
+df_summary <- df_summary %>%
+  arrange(mean_duration_minutes)
+
+# Définir les couleurs pour chaque événement météorologique
+event_colors <- c("rain" = "#176df1", "fog" = "#a5bdba", "fog-rain" = "#8dd4dc", "rain-thunderstorm" = "#04a294", "Temps clair" = "#f0e807")
+
+# Définir les nouvelles étiquettes pour les événements
+event_labels <- c("rain" = "Pluie", "fog" = "Brouillard", "fog-rain" = "Brouillard et pluie", "rain-thunderstorm" = "Orage", "NA"="Temps clair")
+
+# Créer le bar chart avec des couleurs personnalisées et des étiquettes renommées
+graph_meteo_duree_moyenne <- ggplot(df_summary, aes(x = reorder(events, mean_duration_minutes), y = mean_duration_minutes, fill = events)) +
+  geom_bar(stat = "identity") +
+  scale_fill_manual(values = event_colors, labels = event_labels) +
+  scale_x_discrete(labels = event_labels) +
+  labs(title = "Durée moyenne des trajets en fonction de la météo",
+       x = "Événement météorologique",
+       y = "Durée moyenne des trajets (minutes)",
+       fill = "Météo") +
+  theme_minimal()
+
+df_summary <- df_merged %>%
+  group_by(events) %>%
+  summarize(trip_count = n())
+
+df_summary <- df_summary %>%
+  arrange(trip_count)
+
+graph_meteo_nb_trajets <- ggplot(df_summary, aes(x = reorder(events, trip_count), y = trip_count, fill = events)) +
+  geom_bar(stat = "identity") +
+  scale_fill_manual(values = event_colors, labels = event_labels) +
+  scale_x_discrete(labels = event_labels) +
+  labs(title = "Nombre de trajets en fonction de la météo",
+       x = "Événement météorologique",
+       y = "Nombre de trajets",
+       fill = "Météo") +
+  theme_minimal()
+
+
+#---------------------FIN PARTIE METEO-----------------------------------------------------------------------
+
+#---------------------PARTIE SAISON----------------------------------------------------------------
+weather_and_trips <- read_csv("../data/weather_and_trips.csv")
+
+graph_saison_nb_trajets <- ggplot(data = weather_and_trips, aes(x = Saison, fill = Saison)) +
+  geom_bar(stat = "count", color = "black") +
+  scale_fill_manual(values = c("Printemps" = "green", "Été" = "yellow", "Automne" = "orange", "Hiver" = "blue")) +
+  labs(
+    title = "Nombre de trajets par saisons",
+    x = "Saisons",
+    y = "Nombre de trajets"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  )
+
+
+# Calculer la durée moyenne des trajets par saison
+avg_duration_by_season <- weather_and_trips %>%
+  group_by(Saison) %>%
+  summarise(avg_duration = mean(duration_in_minutes))
+
+
+# Créer le graphique
+graph_saison_duree_moyenne <- ggplot(data = avg_duration_by_season, aes(x = Saison, y = avg_duration, fill = Saison)) +
+  geom_bar(stat = "identity", color = "black") +
+  scale_fill_manual(values = c("Printemps" = "green", "Été" = "yellow", "Automne" = "orange", "Hiver" = "blue")) +
+  labs(
+    title = "Durée moyenne des trajets par saison",
+    x = "Saisons",
+    y = "Durée moyenne des trajets (minutes)"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  )
+
+
+
+
+#---------------------FIN PARTIE SAISON----------------------------------------------------------------
 
 shinyServer(function(input, output, session) {
   # Mettre à jour les choix des sélecteurs
@@ -151,4 +275,30 @@ shinyServer(function(input, output, session) {
       }
     }
   })
-})
+  
+  output$graphique_meteo <-renderPlot(
+    {
+      
+      if (input$graphique_meteo == "Durée moyenne des trajets"){
+        print(graph_meteo_duree_moyenne)
+        
+      }
+      else if (input$graphique_meteo == "Nombre de trajets"){
+        print(graph_meteo_nb_trajets)
+      }
+    }
+  )
+  
+  output$graphique_saison <- renderPlot(
+    if (input$graphique_saison == "Durée moyenne des trajets"){
+      print(graph_saison_duree_moyenne)
+    }
+    else if (input$graphique_saison == "Nombre de trajets"){
+      print(graph_saison_nb_trajets)
+    }
+  )
+    
+  })
+  
+
+

@@ -38,12 +38,23 @@ dashboardPage(
       tabItem(tabName = "meteo",
               fluidRow(
                 box(
-                  title = "Météo",
+                  title = "Trajets en fonction de la météo",
                   status = "primary",
                   solidHeader = TRUE,
                   collapsible = TRUE,
                   # Placeholder for weather content
-                  tags$div("Contenu météo à venir", style = "padding: 20px;")
+                  selectInput("graphique_meteo", "Sélectionner le type de valeurs", choices = c("Nombre de trajets", "Durée moyenne des trajets")),
+                  plotOutput("graphique_meteo")
+                ),
+                
+                box(
+                  title = "Trajets en fonction de la saison",
+                  status = "primary",
+                  solidHeader = TRUE,
+                  collapsible = TRUE,
+                  # Placeholder for weather content
+                  selectInput("graphique_saison", "Sélectionner le type de valeurs", choices = c("Nombre de trajets", "Durée moyenne des trajets")),
+                  plotOutput("graphique_saison")
                 )
               )
       )

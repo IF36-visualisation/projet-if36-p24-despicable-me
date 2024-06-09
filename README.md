@@ -21,11 +21,11 @@ Nous avons choisi ces datasets pour les informations diversifiées qu’ils prop
 
 - **Station** : Ce dataset contient des données qui représentent une station où les utilisateurs peuvent récupérer ou restituer des vélos.
   - *Contenu* : 70 éléments avec 7 caractéristiques.
-- **Weather** : Celui-ci donne des informations sur le nombre de vélos et de quais disponibles pour une station et une minute données.
+- **Status** : Celui-ci donne des informations sur le nombre de vélos et de quais disponibles pour une station et une minute données.
   - *Contenu* : 72M éléments avec 24 caractéristiques.
-- **Status** : Ici sont données des informations sur les déplacements individuels à vélo.
+- **Trip** : Ici sont données des informations sur les déplacements individuels à vélo.
   - *Contenu* : 670 000 éléments avec 4 caractéristiques.
-- **Trip** : Ce dernier dataset nous donne des informations sur la météo un jour spécifique pour certains codes postaux
+- **Weather** : Ce dernier dataset nous donne des informations sur la météo un jour spécifique pour certains codes postaux
   - *Contenu* : 3665 éléments avec 11 caractéristiques
 ### Format
 
